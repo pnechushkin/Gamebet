@@ -13,12 +13,6 @@
     </script>
 </head>
 <?php
-/**
- * Created by PhpStorm.
- * User: Павел
- * Date: 11.04.2017
- * Time: 15:08
- */
 error_reporting(E_ALL);
 $curlInit = curl_init('https://affiliates.gamebet.com/global/feed/json/');
 curl_setopt($curlInit,CURLOPT_RETURNTRANSFER,true);

@@ -1,11 +1,17 @@
-<script type="text/javascript">
-    function showOrHidenot_sel(radio,select,nam) {
-        radio = document.getElementById('razdel_'+nam+'');
-        select = document.getElementById('select_'+nam+'');
-        if (radio.checked) select.style.display = "block";
-        else select.style.display = "none";
-    }
-</script>
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Результаты</title>
+    <script type="text/javascript">
+        function showOrHidenot_sel(radio,select,nam) {
+            radio = document.getElementById('razdel_'+nam+'');
+            select = document.getElementById('select_'+nam+'');
+            if (radio.checked) select.style.display = "block";
+            else select.style.display = "none";
+        }
+    </script>
+</head>
 <?php
 /**
  * Created by PhpStorm.
@@ -19,7 +25,8 @@ curl_setopt($curlInit,CURLOPT_RETURNTRANSFER,true);
 $response = curl_exec($curlInit);
 curl_close($curlInit);
 $tabl=json_decode($response, true);?>
-<form method="post" action="">
+<body>
+<form method="post">
     <?php
     $id_s=1;
     foreach ($tabl['sport'] as $key => $id) :?>
@@ -92,3 +99,5 @@ $tabl=json_decode($response, true);?>
         <?php endforeach ;
     endif;?>
 </div>
+</body>
+</html>

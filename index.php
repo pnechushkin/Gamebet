@@ -4,7 +4,6 @@
         select = document.getElementById('select_'+nam+'');
         if (radio.checked) select.style.display = "block";
         else select.style.display = "none";
-
     }
 </script>
 <?php
@@ -21,7 +20,8 @@ $response = curl_exec($curlInit);
 curl_close($curlInit);
 $tabl=json_decode($response, true);?>
 <form method="post" action="">
-    <?php   $id_s=1;
+    <?php
+    $id_s=1;
     foreach ($tabl['sport'] as $key => $id) :?>
         <div style="width: auto;">
             <div style="float: left; text-align: left;  margin: 5px; width: 20% ">
@@ -35,8 +35,7 @@ $tabl=json_decode($response, true);?>
                         if (!in_array($tabl['sport'][$key]['competition']['name'], $podrazdelarr)) :
                             $podrazdelarr[]=$tabl['sport'][$key1]['competition']['name'];
                             ?>
-                            <option
-                                value="<?php echo $tabl['sport'][$key]['competition'][$key1]['id']?>"><?php echo $tabl['sport'][$key]['competition'][$key1]['name']?></option>
+                            <option value="<?php echo $tabl['sport'][$key]['competition'][$key1]['id']?>"><?php echo $tabl['sport'][$key]['competition'][$key1]['name']?></option>
                         <?php endif ;
                     }
                     ?>
@@ -44,7 +43,8 @@ $tabl=json_decode($response, true);?>
             </div>
         </div>
         <div style="clear: both;"></div>
-        <?php $id_s++;
+        <?php
+        $id_s++;
     endforeach ;?>
     <div style="text-align: center; padding: 20px 20px 20px 20px;">
         <input type="submit" value="Получить">
@@ -81,7 +81,6 @@ $tabl=json_decode($response, true);?>
                     $W2=$rez[$i]['price'];
                 }
             }
-
             ?>
             <div style="text-align: center; width: auto"><?php echo $team1_name?> Vs <?php echo $team2_name?></div>
             <div>
